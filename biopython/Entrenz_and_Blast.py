@@ -8,7 +8,7 @@ NCBIXML is used to parse BLAST results stored in XML format.
 from Bio import Entrez, SeqIO
 Entrez.email = "student@example.com"
 handle = Entrez.efetch(db="nucleotide",id="NM_001204686.1",rettype="fasta",retmode="text")
-record = handle.read()
+record = SeqIO.read(handle, "fasta")
 handle.close()
 print(record.id)
 print(record.seq)
